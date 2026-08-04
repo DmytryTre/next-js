@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next: Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**",
+        "**/.next/**"
+      ]
+    },
+    {
+      "name": "Next: Browser",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Next.js: Dev + Debug Full Stack",
+      "configurations": ["Next: Server", "Next: Browser"]
+    }
+  ]
+}
