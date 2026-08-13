@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   title: 'Курсы',
 };
 
-export default async function PageCourses({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { type } = await params;
+
   return <div>{type}</div>;
 }

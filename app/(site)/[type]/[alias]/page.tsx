@@ -1,7 +1,9 @@
 import getMenu from '@/api/menu';
 import getPage from '@/api/page';
+import { getProducts } from '@/api/product'; // Импортируем созданную функцию
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { TopPageComponent } from '../../page-components';
 
 type Props = {
   params: Promise<{ alias: string }>;
@@ -16,11 +18,15 @@ export async function generateStaticParams() {
   return menu.flatMap((item) => item.pages.map((page) => ({ alias: page.alias })));
 }
 
-export default async function PageCourses({ params }: Props) {
+export default async function TopPage({ params }: Props) {
   const { alias } = await params;
   const page = await getPage(alias);
+
   if (!page) {
     notFound();
   }
-  return <div>{page.title}</div>;
+
+  const products = await getProducts(page.category);
+
+  return <TopPageComponent alias={alias} page={page} products={products} />;
 }
