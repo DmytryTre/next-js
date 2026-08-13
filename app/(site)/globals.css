@@ -1,32 +1,33 @@
 html,
 body {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 
-	color: var(--black);
-	background: #F5F6F8;
+  color: var(--black);
+  background: #f5f6f8;
 
-	font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 
-	color: inherit;
+  color: inherit;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-	--black: #3B434E;
-  --gray-light: #EBEBEB;
-	--white: white;
-	--primary: #7653FC;
+  --black: #3b434e;
+  --grey-light: #ebebeb;
+  --grey-dark: #787d85;
+  --white: white;
+  --primary: #7653fc;
   --primary-hover: #40289e;
-	--red: #FC836D;
-	--green: #1DC37E;
-	--green-light: #C8F8E4;
-	--font-family: 'Noto Sans KR', sans-serif;
+  --red: #fc836d;
+  --green: #1dc37e;
+  --green-light: #c8f8e4;
+  --font-family: 'Noto Sans KR', sans-serif;
 }

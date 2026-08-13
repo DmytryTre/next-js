@@ -24,7 +24,7 @@
 .ghost {
   color: var(--black);
   background: none;
-  border: 1px solid var(--gray-light)
+  border: 1px solid var(--grey-light);
 }
 
 .ghost:hover {
@@ -32,8 +32,8 @@
   background-color: var(--primary);
 }
 
-.primary svg, 
-.ghost:hover svg{
+.primary svg,
+.ghost:hover svg {
   fill: var(--white);
 }
 

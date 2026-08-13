@@ -1,6 +1,7 @@
 import { TagProps } from './Tag.props';
 import styles from './Tag.module.css';
 import cn from 'classnames';
+import Link from 'next/link';
 
 export const Tag = ({
   size = 'm',
@@ -18,6 +19,6 @@ export const Tag = ({
       { ...props },
     )}
   >
-    {href ? <a href={href}>{children}</a> : <>{children}</>}
+    {href ? <Link href={href}>{children}</Link> : <>{children}</>}
   </div>
 );
