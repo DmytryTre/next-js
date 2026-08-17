@@ -21,7 +21,7 @@
 }
 
 .ghost {
-  border: 1px solid var(--grey-light);
+  border: 1px solid var(--gray-light);
 }
 
 .red {
@@ -31,7 +31,7 @@
   font-weight: bold;
 }
 
-.grey {
+.gray {
   color: var(--white);
   background: #b3c0d9;
 

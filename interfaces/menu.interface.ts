@@ -22,3 +22,10 @@ export interface FirstLevelMenuIeetebar {
   icon: ReactElement;
   id: TopLevelCategory;
 }
+
+export interface FirstLevelMenuItem {
+  route: string;
+  name: string;
+  icon: ReactElement;
+  id: TopLevelCategory;
+}

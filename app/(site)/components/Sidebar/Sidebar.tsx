@@ -4,6 +4,7 @@ import { Menu } from '..';
 import getMenu from '@/api/menu';
 import Logo from '../../logo.svg';
 import styles from './Sidebar.module.css';
+import { Search } from '@/components';
 
 export async function Sidebar({ className }: { className: string }) {
   const firstCategory = TopLevelCategory.Courses;
@@ -11,7 +12,7 @@ export async function Sidebar({ className }: { className: string }) {
   return (
     <div className={cn(className, styles.sidebar)}>
       <Logo className={styles.logo} />
-      <div>Поиск</div>
+      <Search />
       <Menu menu={menu} firstCategory={firstCategory} />
     </div>
   );

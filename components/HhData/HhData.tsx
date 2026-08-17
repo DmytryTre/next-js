@@ -1,4 +1,4 @@
-import { HhDataProps } from './HhData.props';
+import { HhDataProps, SALARY_LEVELS_CONFIG } from './HhData.props';
 import styles from './HhData.module.css';
 import { ReactElement } from 'react';
 import RateIcon from './rate.svg';
@@ -11,40 +11,31 @@ export const HhData = ({
   middleSalary,
   seniorSalary,
 }: HhDataProps): ReactElement => {
+  const salaryData = [
+    { ...SALARY_LEVELS_CONFIG.junior, salary: juniorSalary, id: 'junior' },
+    { ...SALARY_LEVELS_CONFIG.middle, salary: middleSalary, id: 'middle' },
+    { ...SALARY_LEVELS_CONFIG.senior, salary: seniorSalary, id: 'senior' },
+  ];
+
   return (
     <div className={styles.hh}>
       <Card className={styles.count}>
         <div className={styles.title}>Всего вакансий</div>
         <div className={styles.countValue}>{count}</div>
       </Card>
+
       <Card className={styles.salary}>
-        <div>
-          <div className={styles.title}>Начальный</div>
-          <div className={styles.salaryValue}>{priceRu(juniorSalary)}</div>
-          <div className={styles.rate}>
-            <RateIcon className={styles.filled} />
-            <RateIcon />
-            <RateIcon />
+        {salaryData.map(({ id, title, stars, salary }) => (
+          <div key={id}>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.salaryValue}>{priceRu(salary)}</div>
+            <div className={styles.rate}>
+              {[1, 2, 3].map((star) => (
+                <RateIcon key={star} className={star <= stars ? styles.filled : ''} />
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <div className={styles.title}>Средний</div>
-          <div className={styles.salaryValue}>{priceRu(middleSalary)}</div>
-          <div className={styles.rate}>
-            <RateIcon className={styles.filled} />
-            <RateIcon className={styles.filled} />
-            <RateIcon />
-          </div>
-        </div>
-        <div>
-          <div className={styles.title}>Профессионал</div>
-          <div className={styles.salaryValue}>{priceRu(seniorSalary)}</div>
-          <div className={styles.rate}>
-            <RateIcon className={styles.filled} />
-            <RateIcon className={styles.filled} />
-            <RateIcon className={styles.filled} />
-          </div>
-        </div>
+        ))}
       </Card>
     </div>
   );

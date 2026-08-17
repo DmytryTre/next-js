@@ -41,7 +41,7 @@
   font-weight: 300;
   font-style: 12px;
   line-height: 16px;
-  color: var(--grey-dark);
+  color: var(--gray-dark);
 }
 
 .thirdLevel {
@@ -53,7 +53,7 @@
   font-weight: 500;
   font-style: 14px;
   line-height: 19px;
-  color: var(--grey-dark);
+  color: var(--gray-dark);
 }
 
 .firstLevelActive,
