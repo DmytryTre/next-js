@@ -3,9 +3,17 @@ import styles from './TextArea.module.css';
 import cn from 'classnames';
 
 export const TextArea = ({
-  children,
+  error,
   className,
   ...props
 }: TextAreaProps): React.ReactElement => (
-  <textarea className={cn(className, styles.textarea)} {...props} />
+  <div className={cn(styles.textareaWrapper, className)}>
+    <textarea
+      className={cn(styles.textarea, {
+        [styles.error]: error,
+      })}
+      {...props}
+    />
+    {error && <span className={styles.errorMessage}>{error.message}</span>}
+  </div>
 );

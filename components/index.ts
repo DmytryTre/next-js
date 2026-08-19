@@ -10,3 +10,7 @@ export * from './Input/Input';
 export * from './TextArea/TextArea';
 export * from './Search/Search';
 export * from './Product/Product';
+export * from './Review/Review';
+export * from './Divider/Divider';
+export * from './ReviewForm/ReviewForm';
+export * from './Rating/Rating';

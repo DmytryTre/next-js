@@ -34,6 +34,17 @@ export const priceRu = (price: number): string =>
     minimumFractionDigits: 0,
   }).format(price);
 
+export const dateRu = (date: Date | string | number): string => {
+  const dateObj =
+    typeof date === 'string' || typeof date === 'number' ? new Date(date) : date;
+
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(dateObj);
+};
+
 export const declOfNum = (number: number, titles: [string, string, string]): string => {
   const cases = [2, 0, 1, 1, 1, 2];
   return titles[

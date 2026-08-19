@@ -1,6 +1,6 @@
 'use client';
 
-import { Advantages, Htag, P, Product, Sort, Tag } from '@/components';
+import { Advantages, Htag, Product, Sort, Tag } from '@/components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css';
 import { HhData } from '../../../../components/HhData/HhData';
@@ -17,7 +17,7 @@ export const TopPageComponent = ({ alias, page, products }: TopPageComponentProp
   const setSort = (sort: SortEnum) => {
     dispathSort({ type: sort });
   };
-  console.log(sortedProducts, 'sortedProducts');
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -29,7 +29,9 @@ export const TopPageComponent = ({ alias, page, products }: TopPageComponentProp
         )}
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>{sortedProducts && sortedProducts.map((p) => <Product product={p} />)}</div>
+      <div>
+        {sortedProducts && sortedProducts.map((p) => <Product key={p._id} product={p} />)}
+      </div>
       <div className={styles.hhTitle}>
         <Htag Tag="h2">Вакансии - {page.category}</Htag>
         <Tag color="red" size="m">

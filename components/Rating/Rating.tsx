@@ -10,6 +10,7 @@ export const Rating = ({
   isEditable = false,
   rating,
   setRating,
+  error,
   ...props
 }: RatingProps): React.ReactElement => {
   const [ratingArr, setRatingArr] = useState<ReactElement[]>(new Array(5).fill(<></>));
@@ -62,10 +63,16 @@ export const Rating = ({
     isEditable && constructRating(i);
 
   return (
-    <div {...props}>
+    <div
+      {...props}
+      className={cn(styles.ratingWrapper, {
+        [styles.error]: error,
+      })}
+    >
       {ratingArr.map((r, i) => (
         <span key={i}>{r}</span>
       ))}
+      {error && <span className={styles.errorMessage}>{error.message}</span>}
     </div>
   );
 };
