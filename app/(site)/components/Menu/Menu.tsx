@@ -11,6 +11,7 @@ import { TopLevelCategory } from '@/interfaces/page.interface';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const firsLevelMenu: FirstLevelMenuIeetebar[] = [
   {
@@ -54,6 +55,30 @@ export function Menu({
   const pathname = usePathname();
   const currentAlias = pathname.split('/')[2];
   const currentRoute = pathname.split('/')[1];
+
+  const variants = {
+    visible: {
+      marginBottom: 20,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      marginBottom: 0,
+    },
+  };
+
+  const variantsChildren = {
+    visible: {
+      opacity: 1,
+      height: 29,
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+    },
+  };
 
   const openSecondLevel = (secondCtegory: string) => {
     setMenuData(
@@ -105,13 +130,17 @@ export function Menu({
             >
               {m._id.secondCategory}
             </div>
-            <div
+            <motion.div
+              layout
+              variants={variants}
+              initial={m.isOpened ? 'visible' : 'hidden'}
+              animate={m.isOpened ? 'visible' : 'hidden'}
               className={cn(styles.secondLevelBlock, {
                 [styles.secondLevelBlockOpened]: m.isOpened,
               })}
             >
               {buildThirdLevel(m.pages, route)}
-            </div>
+            </motion.div>
           </div>
         );
       })}
@@ -120,15 +149,16 @@ export function Menu({
 
   const buildThirdLevel = (pages: PageItem[], route: string) =>
     pages.map((page) => (
-      <Link
-        key={page.alias}
-        href={`/${route}/${page.alias}`}
-        className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: `/${route}/${page.alias}` === pathname,
-        })}
-      >
-        {page.category}
-      </Link>
+      <motion.div variants={variantsChildren} key={page.alias}>
+        <Link
+          href={`/${route}/${page.alias}`}
+          className={cn(styles.thirdLevel, {
+            [styles.thirdLevelActive]: `/${route}/${page.alias}` === pathname,
+          })}
+        >
+          {page.category}
+        </Link>
+      </motion.div>
     ));
 
   return (
