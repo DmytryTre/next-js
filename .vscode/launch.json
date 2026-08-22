@@ -20,10 +20,4 @@
       "webRoot": "${workspaceFolder}"
     }
   ],
-  "compounds": [
-    {
-      "name": "Next.js: Dev + Debug Full Stack",
-      "configurations": ["Next: Server", "Next: Browser"]
-    }
-  ]
 }

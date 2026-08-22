@@ -1,18 +1,28 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
 
 const eslintConfig = defineConfig([
+  // 1. Подключаем официальные готовые правила Next.js 16 для Flat Config
   ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
+
+  // 2. Добавляем встроенные в сам ESLint правила форматирования
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    rules: {
+      'indent': ['error', 2, { 'SwitchCase': 1 }],
+      'quotes': ['error', 'single', { 'avoidEscape': true }],
+      'semi': ['error', 'always'],
+    },
+  },
+
+  // 3. Глобальные игнорирования служебных файлов
   globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
   ]),
+  eslintConfigPrettier,
 ]);
 
 export default eslintConfig;
