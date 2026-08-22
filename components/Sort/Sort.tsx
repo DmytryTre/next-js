@@ -14,14 +14,14 @@ export const Sort = ({
       const currentType = item as SortEnum;
 
       return (
-        <span
+        <button
           key={currentType}
           onClick={() => setSort(currentType)}
           className={cn({ [styles.active]: sort === currentType })}
         >
           <SortIcon className={styles.sortIcon} />
           {sortLabels[currentType]}
-        </span>
+        </button>
       );
     })}
   </div>

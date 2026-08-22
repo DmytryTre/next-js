@@ -14,6 +14,7 @@ import { API } from '@/app/api';
 export const ReviewForm = ({
   productId,
   className,
+  tabIndex,
   ...props
 }: ReviewFormProps): React.ReactElement => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -50,6 +51,7 @@ export const ReviewForm = ({
         <Input
           {...register('name', { required: { value: true, message: 'Заполните имя' } })}
           placeholder="Имя"
+          tabIndex={tabIndex}
           error={errors.name}
         />
         <Input
@@ -57,6 +59,7 @@ export const ReviewForm = ({
             required: { value: true, message: 'Заполните заголовок' },
           })}
           placeholder="Заголовок отзыва"
+          tabIndex={tabIndex}
           className={styles.title}
           error={errors.title}
         />
@@ -71,6 +74,7 @@ export const ReviewForm = ({
                 rating={field.value}
                 isEditable
                 setRating={field.onChange}
+                tabIndex={tabIndex}
                 error={errors.rating}
               />
             )}
@@ -82,10 +86,13 @@ export const ReviewForm = ({
           })}
           placeholder="Текст отзыва"
           className={styles.description}
+          tabIndex={tabIndex}
           error={errors.description}
         />
         <div className={styles.submit}>
-          <Button appearance="primary">Отправить</Button>
+          <Button tabIndex={tabIndex} appearance="primary">
+            Отправить
+          </Button>
           <span className={styles.info}>
             * Перед публикацией отзыв пройдет предварительную модерацию и проверку
           </span>
