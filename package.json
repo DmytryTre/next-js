@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "stylelint": "stylelint \"**/*.css\" --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "axios": "^1.19.0",
@@ -29,6 +31,9 @@
     "eslint-config-next": "16.3.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
+    "stylelint-config-clean-order": "^10.0.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^8.1.1",
     "typescript": "^5"
   }
 }
