@@ -46,6 +46,8 @@
 
 .advBlock {
   grid-column: middle / end;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .logo img {
@@ -53,10 +55,10 @@
 }
 
 .title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 27px;
   align-self: flex-end;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
 }
 
 .category {
@@ -65,9 +67,9 @@
 
 .price,
 .credit {
+  align-self: flex-end;
   font-size: 20px;
   line-height: 27px;
-  align-self: flex-end;
 }
 
 .month {
@@ -84,16 +86,16 @@
 }
 
 .description {
+  margin-bottom: 15px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 15px;
 }
 
 .priceTitle,
 .creditTitle,
 .rateTitle {
-  font-weight: 300;
   font-size: 14px;
+  font-weight: 300;
   line-height: 19px;
 }
 
@@ -101,33 +103,29 @@
   margin-left: 20px;
 }
 
-.advBlock {
-  font-size: 16px;
-  line-height: 22px;
-}
-
 .advTitle {
-  font-weight: bold;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .advantages {
-  border-left: 2px solid var(--green);
-  padding-left: 15px;
   margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 2px solid var(--green);
 }
 
 .disadvantages {
-  border-left: 2px solid var(--red);
   padding-left: 15px;
+  border-left: 2px solid var(--red);
 }
 
 .characteristics {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  padding-right: 60px;
-  align-items: baseline;
   gap: 10px;
+  align-items: baseline;
+
+  padding-right: 60px;
 
   font-size: 16px;
   line-height: 32px;
@@ -138,18 +136,16 @@
 }
 
 .characteristicsDots {
-  border-bottom: 1px dashed var(--gray-light);
   margin-bottom: 5px;
+  border-bottom: 1px dashed var(--gray-light);
 }
 
 .reviews {
-  max-height: auto;
   padding: 30px;
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (width <= 1320px) {
   .product {
-    grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
     grid-template-areas:
       'logo . title title title title title'
       'logo . tags tags tags tags tags'
@@ -161,6 +157,7 @@
       'advBlock advBlock advBlock advBlock advBlock advBlock advBlock'
       'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
       'actions actions actions actions actions actions actions';
+    grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
   }
 
   .logo {
@@ -227,9 +224,8 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (width <= 640px) {
   .product {
-    grid-template-columns: 70px 30px 1fr;
     grid-template-areas:
       'logo . title'
       'logo . tags'
@@ -242,6 +238,7 @@
       'advBlock advBlock advBlock'
       'hr2 hr2 hr2'
       'actions actions actions';
+    grid-template-columns: 70px 30px 1fr;
   }
 
   .price {
@@ -257,9 +254,8 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <= 480px) {
   .product {
-    grid-template-columns: 1fr;
     grid-template-areas:
       'logo'
       'title'
@@ -276,5 +272,6 @@
       'advBlock'
       'hr2'
       'actions';
+    grid-template-columns: 1fr;
   }
 }

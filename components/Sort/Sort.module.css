@@ -24,15 +24,19 @@
 }
 
 .sort button {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 20px 1fr;
-  align-items: center;
   cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  align-items: center;
+
   border: none;
-  background: none;
+
   font-size: 16px;
   line-height: 22px;
+
+  background: none;
 }
 
 .sort button:not(.active) {
